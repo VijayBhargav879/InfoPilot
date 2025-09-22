@@ -1,4 +1,3 @@
-
 ```markdown
 # InfoPilot 🤖✨
 
@@ -135,6 +134,3 @@ For questions, support, or collaboration, reach out:
   Made with ❤️ & AI by Vijay Bhargav © 2025
 </div>
 ```
-
-
-Sources
