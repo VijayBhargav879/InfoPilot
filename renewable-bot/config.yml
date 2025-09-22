@@ -1,0 +1,20 @@
+recipe: default.v1
+language: en
+
+pipeline:
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: DIETClassifier
+    epochs: 10
+  - name: FallbackClassifier
+    threshold: 1.0         # Always trigger fallback
+    ambiguity_threshold: 1.0
+
+policies:
+  - name: RulePolicy
+    core_fallback_action_name: "action_fallback_chatgpt"
+    enable_fallback_prediction: true
+
+assistant_id: 20250619-100637-universal-frogman

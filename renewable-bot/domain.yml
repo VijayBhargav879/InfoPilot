@@ -1,0 +1,14 @@
+version: "3.1"
+
+intents:
+  - general_query
+  - nlu_fallback
+
+actions:
+  - action_fallback_chatgpt
+
+responses: {}
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: false

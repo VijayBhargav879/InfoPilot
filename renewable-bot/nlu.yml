@@ -1,0 +1,22 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hello
+      - hi
+      - hey
+      - good morning
+      - good evening
+
+  - intent: goodbye
+    examples: |
+      - bye
+      - goodbye
+      - see you
+      - catch you later
+
+  - intent: nlu_fallback
+    examples: |
+      - asdfaslkdfj
+      - qwertyuiop
