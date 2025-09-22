@@ -1,4 +1,4 @@
-```markdown
+
 # InfoPilot 🤖✨
 
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge)
@@ -48,12 +48,12 @@
 
 ## 🏗️ Architecture Overview
 
-```
+
 graph LR
   A[React Frontend] --> B[Bot/App Server]
   B --> C[Rasa Pro Server]
   C --> D[OpenAI API]
-```
+
 
 - The React frontend connects via an app server middleware to Rasa Pro backend.
 - Rasa Pro runs advanced NLP and communicates with OpenAI API for generating responses.
@@ -80,25 +80,25 @@ graph LR
 
 ### Installation
 
-```
+
 git clone https://github.com/VijayBhargav879/InfoPilot.git
 cd InfoPilot
 cd frontend
 npm install
-```
+
 
 - Configure your Rasa Pro backend and insert your OpenAI API key in the appropriate config.
 - Run frontend:
 
-```
+
 npm start
-```
+
 
 - Run backend with:
 
-```
+
 rasa run
-```
+
 
 - Access frontend at `http://localhost:3000`
 
