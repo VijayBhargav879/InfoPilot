@@ -3,9 +3,15 @@
 
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)
-![Languages](https://img.shields.io/badge/languages-JavaScript%2CPython-blueviolet?style=for-the-badge)
-![GitHub stars](https://img.shields.io/github/stars/VijayBhargav879/InfoPilot?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/VijayBhargav879/InfoPilot?style=for-the-badge)
+![Backend](https://img.shields.io/badge/backend-Rasa%20Pro-blueviolet?style=for-the-badge)
+![AI Engine](https://img.shields.io/badge/AI-OpenAI-blue?style=for-the-badge)
+![Language](https://img.shields.io/badge/python-3.8%2B-yellow?style=for-the-badge)
+![Frontend](https://img.shields.io/badge/frontend-React-61dafb?style=for-the-badge)
+![Dockerized](https://img.shields.io/badge/docker-containerized-2496ed?style=for-the-badge)
+![Deployed](https://img.shields.io/badge/Deployment-Docker%20Compose-2496ed?style=for-the-badge)
+![Stars](https://img.shields.io/github/stars/VijayBhargav879/InfoPilot?style=for-the-badge)
+![Forks](https://img.shields.io/github/forks/VijayBhargav879/InfoPilot?style=for-the-badge)
+
 
 ---
 <div align="center">
