@@ -1,14 +1,2 @@
 action_endpoint:
-  url: "http://action_server:5055/webhook"
-
-nlg:
-  type: rephrase
-  llm:
-    model_group: rasa_command_generation_model
-
-model_groups:
-  - id: rasa_command_generation_model
-    models:
-      - provider: openai
-        model: gpt-4
-        api_key: ${OPENAI_API_KEY}
+  url: "http://localhost:5055/webhook"
