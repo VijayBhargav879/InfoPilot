@@ -9,7 +9,8 @@ class ActionProvider {
 
   handleUserMessage = async (message) => {
     try {
-      const response = await axios.post("http://localhost:5005/webhooks/rest/webhook", {
+      const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5005/webhooks/rest/webhook";
+      const response = await axios.post(apiUrl, {
 
         sender: "user",
         message: message,

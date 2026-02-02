@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import { Plus, Globe, Megaphone, AppWindow, Mic, Send, Book } from "lucide-react";
 
-const API_URL = "http://localhost:5005/webhooks/rest/webhook";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005/webhooks/rest/webhook";
 
 function App() {
   const [conversations, setConversations] = useState([]);
@@ -157,10 +157,10 @@ function App() {
         setConversations(prev => prev.map(conv =>
           conv.id === activeConversationId
             ? {
-                ...conv,
-                messages: [...updatedMessages, ...botReplies],
-                updatedAt: new Date()
-              }
+              ...conv,
+              messages: [...updatedMessages, ...botReplies],
+              updatedAt: new Date()
+            }
             : conv
         ));
         setIsTyping(false);
@@ -175,10 +175,10 @@ function App() {
         setConversations(prev => prev.map(conv =>
           conv.id === activeConversationId
             ? {
-                ...conv,
-                messages: [...updatedMessages, errorMessage],
-                updatedAt: new Date()
-              }
+              ...conv,
+              messages: [...updatedMessages, errorMessage],
+              updatedAt: new Date()
+            }
             : conv
         ));
         setIsTyping(false);
@@ -206,7 +206,7 @@ function App() {
           </div>
           <button className="sidebar-toggle" onClick={() => setSidebarOpen(!sidebarOpen)}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+              <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" />
             </svg>
           </button>
         </div>
@@ -214,7 +214,7 @@ function App() {
         <div className="sidebar-content">
           <div className="search-bar">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+              <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
             </svg>
             <input type="text" placeholder="Search" />
           </div>
@@ -222,7 +222,7 @@ function App() {
           <div className="nav-section">
             <div className="nav-item active">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
               </svg>
               <span>InfoPilot</span>
             </div>
@@ -234,7 +234,7 @@ function App() {
 
           <button className="new-chat-btn" onClick={createNewConversation}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19 13h-6v6H5v-2h6V5h2v6h6v2z"/>
+              <path d="M19 13h-6v6H5v-2h6V5h2v6h6v2z" />
             </svg>
             <span>New Chat</span>
           </button>
@@ -254,7 +254,7 @@ function App() {
                   aria-label="Delete conversation"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                    <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
                   </svg>
                 </button>
               </div>
@@ -263,18 +263,18 @@ function App() {
         </div>
 
         <div className="sidebar-footer">
-  <a
-    href="https://github.com/VijayBhargav879"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="user-profile"
-    style={{ textDecoration: "none", color: "inherit" }}
-    aria-label="View GitHub profile"
-  >
-    <div className="user-avatar">V</div>
-    <span>VJ</span>
-  </a>
-</div>
+          <a
+            href="https://github.com/VijayBhargav879"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="user-profile"
+            style={{ textDecoration: "none", color: "inherit" }}
+            aria-label="View GitHub profile"
+          >
+            <div className="user-avatar">V</div>
+            <span>VJ</span>
+          </a>
+        </div>
 
       </aside>
 
@@ -356,7 +356,7 @@ function App() {
                       <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79" />
                     </svg>
                   )}
-                
+
                 </button>
                 <button className="input-icon-btn" title="Language">
                   <Globe size={20} />

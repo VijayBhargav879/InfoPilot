@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    networks:
+      - infopilot-network
+    depends_on:
+      - rasa_pro
+
+  rasa_pro:
+    image: rasa/rasa-pro:3.12.17
+    command:
+      - run
+      - --enable-api
+      - --cors
+      - "*"
+      - --debug
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./renewable-bot/models:/app/models
+      - ./renewable-bot/endpoints.yml:/app/endpoints.yml
+    env_file:
+      - ./renewable-bot/.env
+    # environment:
+    #   - RASA_PRO_LICENSE=${RASA_PRO_LICENSE}
+    networks:
+      - infopilot-network
+    depends_on:
+      - action_server
+
+  action_server:
+    build:
+      context: ./renewable-bot
+      dockerfile: Dockerfile
+    command: [ "python", "-m", "rasa_sdk", "--actions", "actions" ]
+    ports:
+      - "5055:5055"
+    volumes:
+      - ./renewable-bot/actions:/app/actions
+    env_file:
+      - ./renewable-bot/.env
+    networks:
+      - infopilot-network
+
+networks:
+  infopilot-network:
+    driver: bridge

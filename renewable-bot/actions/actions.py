@@ -28,7 +28,7 @@ class ActionFallbackChatGPT(Action):
                 model="gpt-3.5-turbo",
                 temperature=0.5,
                 messages=[
-                    {"role": "system", "content": "You are a helpful and accurate assistant for renewable energy awareness."},
+                    {"role": "system", "content": "You are a helpful and accurate assistant."},
                     {"role": "user", "content": user_input}
                 ]
             )
