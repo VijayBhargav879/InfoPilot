@@ -1,13 +1,11 @@
 from typing import Any, Dict, List, Text
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-import openai
+from openai import OpenAI
 import os
 from dotenv import load_dotenv
 
 load_dotenv()  # Load environment variables from .env file
-openai.api_key = os.getenv("OPENAI_API_KEY")
-
 
 class ActionFallbackChatGPT(Action):
 
@@ -22,9 +20,12 @@ class ActionFallbackChatGPT(Action):
     ) -> List[Dict[Text, Any]]:
 
         user_input = tracker.latest_message.get("text")
+        
+        # Initialize the client
+        client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
         try:
-            response = openai.ChatCompletion.create(
+            response = client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 temperature=0.5,
                 messages=[
