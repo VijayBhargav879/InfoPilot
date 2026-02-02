@@ -21,14 +21,27 @@ The frontend is ready for Vercel deployment.
 
 The backend runs Rasa Pro and a Python Action Server. Since these are Docker containers, you need a service that supports Docker (e.g., Render, AWS ECS, Google Cloud Run, DigitalOcean App Platform). **Vercel does NOT support this backend directly.**
 
-### Option A: Render (Easiest)
-1.  Create a `render.yaml` or deploy manually.
-2.  You will need to deploy **two services**:
-    -   **Rasa Service**: Docker deploy of `renewable-bot` directory (using `rasa run`).
-    -   **Action Server**: Docker deploy of `renewable-bot` directory (using `Dockerfile`, command `start --actions actions`).
-3.  **Environment Variables**:
-    -   `OPENAI_API_KEY`: Your OpenAI key.
-    -   `RASA_PRO_LICENSE`: Your Rasa Pro license.
+### Option A: Koyeb (recommended for Docker)
+Koyeb has a "forever free" tier that works well for Docker containers.
+1.  **Sign up** at Koyeb.com.
+2.  **Create App**: Select "Docker" as the deployment method.
+3.  **Image**: Use `docker.io/<your-username>/infopilot-backend` (you must push your image to Docker Hub first).
+4.  **Ports**: Set port to `5005`.
+5.  **Environment Variables**: Add `OPENAI_API_KEY` and `RASA_PRO_LICENSE`.
+
+### Option B: Fly.io
+Fly.io provides a free allowance (up to 3 small VMs).
+1.  **Install `flyctl`**.
+2.  Run `fly launch` in the `renewable-bot` directory.
+3.  It will generate a `fly.toml`.
+4.  Deploy with `fly deploy`.
+
+### Option C: Railway
+Railway offers a trial usage plan.
+1.  **Connect GitHub**: Select your repo.
+2.  **Add Service**: Select the `renewable-bot` folder.
+3.  Railway usually auto-detects the Dockerfile.
+4.  Set variables in the dashboard.
 
 ### Option B: AWS / Google Cloud
 1.  Build the images locally:
